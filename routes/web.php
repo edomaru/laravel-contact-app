@@ -27,7 +27,7 @@ Route::get('/contacts/create', function () {
 
 Route::get('/contacts/{id}', function ($id) {
     return "Contact " . $id;
-});
+})->whereNumber('id');
 
 Route::get('/companies/{name?}', function ($name = null) {
     if ($name) {
@@ -35,4 +35,4 @@ Route::get('/companies/{name?}', function ($name = null) {
     } else {
         return "All companies";
     }
-});
+})->whereAlphaNumeric('name');
