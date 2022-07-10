@@ -22,7 +22,7 @@ Route::get('/', function () {
         <a href='" . route('contacts.show', 1) . "'>Show contact</a>
     </div>
     ";
-    return $html;
+    return view('welcome');
 });
 
 Route::get('/contacts', function () {
@@ -36,7 +36,3 @@ Route::get('/contacts/create', function () {
 Route::get('/contacts/{id}', function ($id) {
     return "Contact " . $id;
 })->name('contacts.show');
-
-Route::fallback(function () {
-    return "<h1>Sorry, the page does not exist</h1>";
-});
