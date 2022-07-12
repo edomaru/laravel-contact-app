@@ -22,7 +22,7 @@ Route::get('/contacts', function () {
 })->name('contacts.index');
 
 Route::get('/contacts/create', function () {
-    return "<h1>Add new contact</h1>";
+    return view('contacts.create');
 })->name('contacts.create');
 
 Route::get('/contacts/{id}', function ($id) {
