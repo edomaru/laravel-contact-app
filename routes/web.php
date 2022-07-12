@@ -18,7 +18,12 @@ Route::get('/', function () {
 });
 
 Route::get('/contacts', function () {
-    return view('contacts.index');
+    $contacts = [
+        1 => ['name' => 'Name 1', 'phone' => '1234567890'],
+        2 => ['name' => 'Name 2', 'phone' => '2345678901'],
+        3 => ['name' => 'Name 3', 'phone' => '3456789012'],
+    ];
+    return view('contacts.index', compact('contacts'));
 })->name('contacts.index');
 
 Route::get('/contacts/create', function () {
