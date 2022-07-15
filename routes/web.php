@@ -27,8 +27,12 @@ Route::get('/', function () {
 });
 
 Route::get('/contacts', function () {
+    $companies = [
+        1 => ['name' => 'Company One', 'contacts' => 3],
+        2 => ['name' => 'Company Two', 'contacts' => 5],
+    ];
     $contacts = getContacts();
-    return view('contacts.index', compact('contacts'));
+    return view('contacts.index', compact('contacts', 'companies'));
 })->name('contacts.index');
 
 Route::get('/contacts/create', function () {
