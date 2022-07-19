@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,14 +27,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contacts', function () {
-    $companies = [
-        1 => ['name' => 'Company One', 'contacts' => 3],
-        2 => ['name' => 'Company Two', 'contacts' => 5],
-    ];
-    $contacts = getContacts();
-    return view('contacts.index', compact('contacts', 'companies'));
-})->name('contacts.index');
+Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
 
 Route::get('/contacts/create', function () {
     return view('contacts.create');
