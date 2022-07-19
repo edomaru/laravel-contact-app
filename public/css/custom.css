@@ -45,3 +45,12 @@ ul.pagination {
     background: #435d7d;
     padding: 16px 20px;
 }
+
+.footer {
+	background-color: #435d7d; 
+	color: #f7f7f7;
+}
+
+.footer a {
+	color: #d9d9d9;
+}
