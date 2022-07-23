@@ -30,7 +30,14 @@ Route::resources([
     '/tags' => TagController::class,
     '/tasks' => TaskController::class
 ]);
-Route::resource('/activities', ActivityController::class)->except([
-    'index', 'show'
-]);
 Route::resource('/contacts.notes', ContactNoteController::class)->shallow();
+// Route::resource('/activities', ActivityController::class)->except([
+//     'index', 'show'
+// ]);
+// Route::resource('/activities', ActivityController::class)->names([
+//     'index' => 'activities.all',
+//     'show' => 'activities.view'
+// ]);
+Route::resource('/activities', ActivityController::class)->parameters([
+    'activities' => 'active'
+]);
