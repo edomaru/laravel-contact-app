@@ -12,4 +12,9 @@ class Company extends Model
     // protected $table = "app_companies";
     // protected $primaryKey = "_id";
     protected $fillable = ['name', 'email', 'address', 'website'];
+
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class);
+    }
 }
