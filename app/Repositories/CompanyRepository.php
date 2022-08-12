@@ -8,12 +8,6 @@ class CompanyRepository
 {
     public function pluck()
     {
-        // return Company::orderBy('name')->pluck('name', 'id');
-        $data = [];
-        $companies = Company::orderBy('name')->get();
-        foreach ($companies as $company) {
-            $data[$company->id] = $company->name . " (" . $company->contacts()->count() . ")";
-        }
-        return $data;
+        return Company::orderBy('name')->pluck('name', 'id');
     }
 }

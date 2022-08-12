@@ -15,7 +15,7 @@ class ContactController extends Controller
     public function index()
     {
         $companies = $this->company->pluck();
-        $contacts = Contact::latest()->get();
+        $contacts = Contact::latest()->paginate(10);
         return view('contacts.index', compact('contacts', 'companies'));
     }
 
