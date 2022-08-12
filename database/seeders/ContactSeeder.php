@@ -22,7 +22,7 @@ class ContactSeeder extends Seeder
         $contacts = [];
 
         foreach ($companies as $company) {
-            foreach (range(1, 5) as $index) {
+            foreach (range(1, mt_rand(5, 15)) as $index) {
                 $contact = [
                     'first_name' => $faker->firstName(),
                     'last_name' => $faker->lastName(),
