@@ -16,16 +16,7 @@ class ContactController extends Controller
     public function index()
     {
         $companies = $this->company->pluck();
-        // $contacts = Contact::latest()->paginate(10);
-        $contactsCollection = Contact::latest()->get();
-        $perPage = 10;
-        $currentPage = request()->query('page', 1);
-        $items = $contactsCollection->slice(($currentPage * $perPage) - $perPage, $perPage);
-        $total = $contactsCollection->count();
-        $contacts = new LengthAwarePaginator($items, $total, $perPage, $currentPage, [
-            'path' => request()->url(),
-            'query' => request()->query()
-        ]);
+        $contacts = Contact::latest()->paginate(10);
         return view('contacts.index', compact('contacts', 'companies'));
     }
 
