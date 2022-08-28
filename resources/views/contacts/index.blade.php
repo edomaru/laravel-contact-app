@@ -18,6 +18,9 @@
               </div>
             <div class="card-body">
               @include('contacts._filter')
+              @if ($message = session('message'))
+                  <div class="alert alert-success">{{ $message }}</div>
+              @endif
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
