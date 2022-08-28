@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Repositories\CompanyRepository;
 use Illuminate\Http\Request;
 use App\Models\Contact;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 class ContactController extends Controller
 {
@@ -31,9 +30,17 @@ class ContactController extends Controller
         return view('contacts.create', compact('companies'));
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        dd('Store');
+        $request->validate([
+            'first_name' => 'required|string|max:50',
+            'last_name' => 'required|string|max:50',
+            'email' => 'required|email',
+            'phone' => 'nullable',
+            'address' => 'nullable',
+            'company_id' => 'required|exists:companies,id'
+        ]);
+        dd($request->all());
     }
 
     public function show($id)
