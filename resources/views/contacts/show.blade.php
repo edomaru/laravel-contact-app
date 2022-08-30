@@ -51,7 +51,7 @@
                   <div class="form-group row">
                     <label for="company_id" class="col-md-3 col-form-label">Company</label>
                     <div class="col-md-9">
-                      <p class="form-control-plaintext text-muted">{{ $contact->company_id }}</p>
+                      <p class="form-control-plaintext text-muted">{{ $contact->company->name }}</p>
                     </div>
                   </div>
                   <hr>
