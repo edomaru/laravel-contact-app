@@ -21,26 +21,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', WelcomeController::class);
-
-Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
-Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
-Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create');
-Route::get('/contacts/{id}', [ContactController::class, 'show'])->name('contacts.show');
-Route::get('/contacts/{id}/edit', [ContactController::class, 'edit'])->name('contacts.edit');
-Route::put('/contacts/{id}', [ContactController::class, 'update'])->name('contacts.update');
+Route::resource('/contacts', ContactController::class);
 Route::resource('/companies', CompanyController::class);
 Route::resources([
     '/tags' => TagController::class,
     '/tasks' => TaskController::class
 ]);
 Route::resource('/contacts.notes', ContactNoteController::class)->shallow();
-// Route::resource('/activities', ActivityController::class)->except([
-//     'index', 'show'
-// ]);
-// Route::resource('/activities', ActivityController::class)->names([
-//     'index' => 'activities.all',
-//     'show' => 'activities.view'
-// ]);
 Route::resource('/activities', ActivityController::class)->parameters([
     'activities' => 'active'
 ]);
