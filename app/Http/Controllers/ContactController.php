@@ -77,6 +77,6 @@ class ContactController extends Controller
     {
         $contact = Contact::findOrFail($id);
         $contact->delete();
-        return back()->with('message', 'Contact has been removed successfully');
+        return redirect()->route('contacts.index')->with('message', 'Contact has been removed successfully');
     }
 }
