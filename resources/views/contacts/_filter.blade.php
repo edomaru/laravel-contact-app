@@ -1,5 +1,12 @@
 <div class="row">
-    <div class="col-md-6"></div>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col">
+          <a href="{{ request()->fullUrlWithQuery(['trash' => false]) }}" class="btn {{ !request()->query('trash') ? 'text-primary' : 'text-secondary' }}">All</a> | 
+          <a href="{{ request()->fullUrlWithQuery(['trash' => true]) }}" class="btn {{ request()->query('trash') ? 'text-primary' : 'text-secondary' }}">Trash</a>
+        </div>
+      </div>
+    </div>
     <div class="col-md-6">
       <form>
         <div class="row">
