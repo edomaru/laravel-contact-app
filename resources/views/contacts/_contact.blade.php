@@ -11,7 +11,7 @@
           @method('delete')
           <button type="submit" class="btn btn-sm btn-circle btn-outline-info" title="Restore"><i class="fa fa-undo"></i></button>
         </form>
-        <form action="{{ route('contacts.force-delete', $contact->id) }}" onsubmit="return alert('Your data will be removed permanently. Are you sure?')" method="POST" style="display: inline">
+        <form action="{{ route('contacts.force-delete', $contact->id) }}" onsubmit="return confirm('Your data will be removed permanently. Are you sure?')" method="POST" style="display: inline">
           @csrf
           @method('delete')
           <button type="submit" class="btn btn-sm btn-circle btn-outline-danger" title="Delete permanently"><i class="fa fa-times"></i></button>

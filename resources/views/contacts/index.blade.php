@@ -10,7 +10,12 @@
           <div class="card">
               <div class="card-header card-title">
                 <div class="d-flex align-items-center">
-                  <h2 class="mb-0">All Contacts</h2>
+                  <h2 class="mb-0">
+                    All Contacts
+                    @if (request()->query('trash'))
+                        <small>(In Trash)</small>
+                    @endif
+                  </h2>
                   <div class="ml-auto">
                     <a href="{{ route('contacts.create') }}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Add New</a>
                   </div>

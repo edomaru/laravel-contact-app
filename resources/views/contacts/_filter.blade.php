@@ -9,6 +9,7 @@
     </div>
     <div class="col-md-6">
       <form>
+        <input type="hidden" name="trash" value="{{ request()->query('trash') }}">
         <div class="row">
           <div class="col">
             @includeUnless(empty($companies), 'contacts._company-selection')
