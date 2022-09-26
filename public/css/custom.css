@@ -54,3 +54,44 @@ ul.pagination {
 .footer a {
 	color: #d9d9d9;
 }
+
+th a { 
+	display: block;
+	width: 100%;
+	color: inherit;
+	
+}
+th a:hover {
+	text-decoration: none;
+}
+a.sortable { 
+	padding-right: 18px;
+	position: relative;
+}
+a.sortable:before,
+a.sortable:after {
+	border: 4px solid transparent;
+	content: "";
+	display: block;
+	height: 0;
+	right: 5px;
+	top: 50%;
+	position: absolute;
+	width: 0;
+}
+a.sortable:before {
+	border-bottom-color: #e4e4e4;
+	margin-top: -9px;
+}
+a.sortable.asc:before {
+	border-bottom-color: #848484;
+	margin-top: -9px;
+}
+a.sortable:after {
+	border-top-color: #e4e4e4;
+	margin-top: 1px;
+}
+a.sortable.desc:after {
+	border-top-color: #848484;
+	margin-top: 1px;
+}
