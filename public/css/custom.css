@@ -95,3 +95,20 @@ a.sortable.desc:after {
 	border-top-color: #848484;
 	margin-top: 1px;
 }
+
+.auth-wrapper {
+	min-height: 92vh;
+}
+
+.auth-wrapper h1 {
+	font-size: 1.5em;
+	font-weight: 700;
+	color: #6c757d;
+	letter-spacing: 1px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.auth-wrapper .form-label {
+	color: #6c757d;
+}
