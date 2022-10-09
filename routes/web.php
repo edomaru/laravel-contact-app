@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', WelcomeController::class);
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/contacts', ContactController::class);
     Route::delete('/contacts/{contact}/restore', [ContactController::class, 'restore'])
         ->name('contacts.restore')
