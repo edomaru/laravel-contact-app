@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Settings;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class PasswordController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -14,8 +15,6 @@ class ProfileController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('auth.profile-information', [
-            'user' => $request->user()
-        ]);
+        return view('settings.password');
     }
 }
