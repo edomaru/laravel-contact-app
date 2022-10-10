@@ -5,6 +5,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContactNoteController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\WelcomeController;
@@ -40,4 +41,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
         'activities' => 'active'
     ]);
     Route::get('/dashboard', DashboardController::class);
+    Route::get('/user/profile-information', ProfileController::class)->name('user-profile-information.edit');
 });

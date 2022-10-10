@@ -12,6 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    @stack('styles')
   </head>
   <body>
     <!-- navbar -->
@@ -29,7 +30,7 @@
           @auth
             <ul class="navbar-nav">
               <li class="nav-item"><a href="#" class="nav-link">Companies</a></li>
-              <li class="nav-item active"><a href="#" class="nav-link">Contacts</a></li>
+              <li class="nav-item active"><a href="{{ route('contacts.index') }}" class="nav-link">Contacts</a></li>
             </ul>
           @endauth
           <ul class="navbar-nav ml-auto">
@@ -43,7 +44,7 @@
                   {{ auth()->user()->name }}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="profile.html">Settings</a>
+                  <a class="dropdown-item" href="{{ route('user-profile-information.edit') }}">Settings</a>
                   <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                     @csrf
                     <button class="dropdown-item">Logout</button>
@@ -61,5 +62,6 @@
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    @stack('scripts')
   </body>
 </html>
