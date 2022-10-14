@@ -8,7 +8,7 @@
       <div class="row">
         @include('settings._sidenav')
         <div class="col-md-9">
-          <form action="{{ route('user-profile-information.update') }}" method="POST">
+          <form action="{{ route('user-profile-information.update') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
               <div class="card">
@@ -59,7 +59,7 @@
                           <label for="bio">Profile picture</label>
                           <div class="fileinput fileinput-new" data-provides="fileinput">
                               <div class="fileinput-new img-thumbnail" style="width: 150px; height: 150px;">
-                                  <img src="https://via.placeholder.com/150x150"  alt="...">
+                                  <img src="{{ $user->profilePictureUrl() }}"  alt="...">
                               </div>
                               <div class="fileinput-preview fileinput-exists img-thumbnail" style="max-width: 150px; max-height: 150px;"></div>
                               <div class="mt-2">
