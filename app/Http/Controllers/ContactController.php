@@ -3,18 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
-use App\Repositories\CompanyRepository;
+use App\Models\Company;
 use App\Models\Contact;
 
 class ContactController extends Controller
 {
-    public function __construct(protected CompanyRepository $company)
-    {
-    }
-
     protected function userCompanies()
     {
-        return $this->company->pluck(auth()->user());
+        return Company::forUser(auth()->user())->orderBy('name')->pluck('name', 'id');
     }
 
     public function index()
