@@ -8,21 +8,21 @@
       </div>
     </div>
     <div class="col-md-6">
-      <form>
+      <form id="search-form">
         <input type="hidden" name="trash" value="{{ request()->query('trash') }}">
         <div class="row">
           <div class="col">
-            @includeUnless(empty($companies), 'contacts._company-selection')
+            @isset($filterView)
+                @includeIf($filterView)
+            @endisset
           </div>
           <div class="col">
             <div class="input-group mb-3">
               <input type="text" class="form-control" name="search" value="{{ request()->query('search') }}" id="search-input" placeholder="Search..." aria-label="Search..." aria-describedby="button-addon2">
               <div class="input-group-append">
-                @if(request()->filled('search') || request()->filled('company_id'))
-                  <button class="btn btn-outline-secondary" type="button" onclick="document.getElementById('search-input').value = '', document.getElementById('search-select').selectedIndex = 0, this.form.submit()">
-                      <i class="fa fa-refresh"></i>
-                  </button>
-                @endif
+                <button class="btn btn-outline-secondary" type="button" id="reset-filter-btn">
+                    <i class="fa fa-refresh"></i>
+                </button>
                 <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
                   <i class="fa fa-search"></i>
                 </button>
@@ -33,3 +33,33 @@
       </form>
     </div>
   </div>
+
+  @push('scripts')
+      <script>
+        (function () {
+          let query = location.search,
+              pattern = /[?&]search=/,
+              button = document.getElementById("reset-filter-btn")
+          if (pattern.test(query)) {
+              button.style.display = 'block'
+          } else{
+              button.style.display = 'none'
+          }
+        })();
+
+        document.getElementById('reset-filter-btn').addEventListener('click', () => {
+          let input = document.getElementById('search-input'),
+              selects = document.querySelectorAll('.search-select');
+
+          if (input) {
+            input.value = "";
+          }
+
+          selects.forEach(select => {
+            select.selectedIndex = 0;
+          });
+
+          window.location.href = window.location.href.split('?')[0]
+        })
+      </script>
+  @endpush

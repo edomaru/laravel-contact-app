@@ -22,7 +22,7 @@
                 </div>
               </div>
             <div class="card-body">
-              {{-- @include('companies._filter') --}}
+              @include('shared.filter')
               @include('shared.flash')
               <table class="table table-striped table-hover">
                 <thead>
