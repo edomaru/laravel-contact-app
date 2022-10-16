@@ -46,11 +46,10 @@
                   <div class="form-group row mb-0">
                     <div class="col-md-9 offset-md-3">
                         <a href="{{ route('companies.edit', $company->id) }}" class="btn btn-info">Edit</a>
-                        <form action="{{ route('companies.destroy', ['company' => $company->id, 'redirect' => 'companies.index']) }}" method="POST" style="display: inline">
-                          @csrf
-                          @method('delete')
-                          <button type="submit" class="btn btn-outline-danger" title="Delete">Delete</button>
-                        </form>
+                        @include('shared.buttons.destroy', [
+                          'action' => route('companies.destroy', ['company' => $company->id, 'redirect' => 'companies.index']),
+                          'buttonStyle' => 'default'
+                        ])
                         <a href="{{ route('companies.index') }}" class="btn btn-outline-secondary">Cancel</a>
                     </div>
                   </div>
