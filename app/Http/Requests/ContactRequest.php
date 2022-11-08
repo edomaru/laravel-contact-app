@@ -40,4 +40,12 @@ class ContactRequest extends FormRequest
             'email' => 'email address'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'email.email' => 'The email that you entered is not valid',
+            '*.required' => ':attribute cannot be empty'
+        ];
+    }
 }
