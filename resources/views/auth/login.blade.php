@@ -31,7 +31,7 @@
                             <input type="checkbox" class="custom-control-input" name="remember" value="true" id="customCheck1">
                             <label class="custom-control-label text-black-50" for="customCheck1">Remember me</label>
                         </div>
-                        <a href="request-reset-password.html">Forget your password?</a>
+                        <a href="{{ route('password.request') }}">Forget your password?</a>
                     </div>
                     <div class="mt-4 d-grid">
                         <button type="submit" class="btn btn-block btn-primary">Login</button>
