@@ -61,7 +61,7 @@
                       </div>
                       <div class="form-group">
                         <label for="address">Address</label>
-                        <textarea name="address" value="{{ old('address', $user->address) }}" id="address" rows="2" class="form-control"></textarea>
+                        <textarea name="address" id="address" rows="2" class="form-control">{{ old('address', $user->address) }}</textarea>
                       </div>
                     </div>
                     <div class="offset-md-1 col-md-3">
