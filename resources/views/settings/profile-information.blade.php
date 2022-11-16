@@ -6,18 +6,7 @@
 <main class="py-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
-          <div class="card">
-            <div class="card-header">
-              Settings
-            </div>
-            <div class="list-group list-group-flush">
-              <a href="profile.html" class="list-group-item list-group-item-action active">Profile</span></a>
-              <a href="password.html" class="list-group-item list-group-item-action">Password</span></a>
-              <a href="#" class="list-group-item list-group-item-action">Import & Export</span></a>
-            </div>
-          </div>
-        </div><!-- /.col-md-3 -->
+        @include('settings._sidenav')
 
         <div class="col-md-9">
           <form action="{{ route('user-profile-information.update') }}" method="POST">
