@@ -51,6 +51,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'company' => $input['company'],
                 'country' => $input['country'],
                 'address' => $input['address'],
+                'profile_picture' => $input['profile_picture'],
             ])->save();
         }
     }
@@ -59,10 +60,6 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     {
         if (request()->hasFile('profile_picture')) {
             $uploadedFile = $input['profile_picture'];
-
-            // dump($uploadedFile->getClientOriginalName());
-            // dump($uploadedFile->getClientOriginalExtension());
-            // dd($uploadedFile->getClientMimeType());
 
             $fileName = $uploadedFile->storeAs(
                 'profile',
@@ -90,6 +87,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'company' => $input['company'],
             'country' => $input['country'],
             'address' => $input['address'],
+            'profile_picture' => $input['profile_picture'],
             'email_verified_at' => null,
         ])->save();
 
