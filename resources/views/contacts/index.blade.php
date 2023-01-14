@@ -22,7 +22,9 @@
                 </div>
               </div>
             <div class="card-body">
-              @include('contacts._filter')
+              @include('shared.filter', [
+                'filterDropdown' => 'contacts._company-selection'
+              ])
               @include('shared.flash')
               <table class="table table-striped table-hover">
                 <thead>
