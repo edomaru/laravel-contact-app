@@ -24,6 +24,7 @@ class ContactController extends Controller
             ->allowedFilters('company_id')
             ->allowedSearch('first_name', 'last_name', 'email')
             ->forUser(auth()->user())
+            ->with("company")
             ->paginate(10);
 
         return view('contacts.index', compact('contacts', 'companies'));
