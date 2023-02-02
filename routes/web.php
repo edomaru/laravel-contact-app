@@ -10,6 +10,7 @@ use App\Http\Controllers\Settings\ProfileController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\WelcomeController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,4 +51,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/activities', ActivityController::class)->parameters([
         'activities' => 'active'
     ]);
+});
+
+Route::get('/eagerload-multipe', function () {
+    $users = User::with(['companies', 'contacts'])->get();
+
+    foreach ($users as $user) {
+        echo $user->name . ": ";
+        echo $user->companies->count() . " companies, " . $user->contacts->count() . " contacts<br>";
+    }
 });
