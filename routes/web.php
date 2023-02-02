@@ -61,3 +61,14 @@ Route::get('/eagerload-multipe', function () {
         echo $user->companies->count() . " companies, " . $user->contacts->count() . " contacts<br>";
     }
 });
+
+Route::get('/eagerload-nested', function () {
+    $users = User::with(['companies', 'companies.contacts'])->get();
+    foreach ($users as $user) {
+        echo $user->name . "<br />";
+        foreach ($user->companies as $company) {
+            echo $company->name . " has " . $company->contacts->count() . " contacts<br />";
+        }
+        echo "<br />";
+    }
+});
