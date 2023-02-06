@@ -85,3 +85,17 @@ Route::get('/eagerload-constraint', function () {
         echo "<br />";
     }
 });
+
+Route::get('/eagerload-lazy', function () {
+    $users = User::get();
+    $users->load(['companies' => function ($query) {
+        $query->orderBy('name');
+    }]);
+    foreach ($users as $user) {
+        echo $user->name . "<br />";
+        foreach ($user->companies as $company) {
+            echo $company->name . "<br />";
+        }
+        echo "<br />";
+    }
+});
