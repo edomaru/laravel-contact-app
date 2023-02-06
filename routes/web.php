@@ -72,3 +72,16 @@ Route::get('/eagerload-nested', function () {
         echo "<br />";
     }
 });
+
+Route::get('/eagerload-constraint', function () {
+    $users = User::with(['companies' => function ($query) {
+        $query->where('email', 'like', '%.org');
+    }])->get();
+    foreach ($users as $user) {
+        echo $user->name . "<br />";
+        foreach ($user->companies as $company) {
+            echo $company->email . "<br />";
+        }
+        echo "<br />";
+    }
+});
