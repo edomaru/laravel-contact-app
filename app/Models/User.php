@@ -48,7 +48,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    protected $with = ['contacts', 'companies'];
+    // protected $with = ['contacts', 'companies'];
 
     public function companies()
     {
