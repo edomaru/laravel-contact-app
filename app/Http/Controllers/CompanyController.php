@@ -19,7 +19,7 @@ class CompanyController extends Controller
             ->allowedSorts(['name', 'website', 'email'], '-id')
             ->allowedSearch('name', 'website', 'email')
             ->forUser(auth()->user())
-            ->with("contacts")
+            ->withCount("contacts")
             ->paginate(10);
 
         return view('companies.index', compact('companies'));

@@ -7,7 +7,7 @@
     <div class="container">
         <h1 class="h5 mb-3">
             Welcome
-            <small class="text-muted">{{ auth()->user()->name }}</small>
+            <small class="text-muted">{{ $user->name }}</small>
         </h1>
         <div class="row">
             <div class="col-md-4">
@@ -17,10 +17,10 @@
                     </div>
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-around">
-                            <h3 class="h1">1900</h3>
+                            <h3 class="h1">{{ $user->contacts_count }}</h3>
                             <ul class="list-unstyled pl-5">
-                                <li>1300 companies</li>
-                                <li>1900 contacts</li>
+                                <li>{{ $user->companies_count }} {{ str('companies')->plural($user->companies_count) }} </li>
+                                <li>{{ $user->contacts_count }} {{ str('contacts')->plural($user->contacts_count) }} </li>
                             </ul>
                         </div>
                     </div>

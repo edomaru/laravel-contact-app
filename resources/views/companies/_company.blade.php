@@ -3,7 +3,7 @@
   <td>{{ $company->name }}</td>
   <td>{{ $company->website }}</td>
   <td>{{ $company->email }}</td>
-  <td><a href="{{ route('contacts.index', ['company_id' => $company->id]) }}">{{ $company->contacts->count() }}</a></td>
+  <td><a href="{{ route('contacts.index', ['company_id' => $company->id]) }}">{{ $company->contacts_count }}</a></td>
   <td width="150">
     @if ($showTrashButtons)
       @include('shared.buttons.restore', [
